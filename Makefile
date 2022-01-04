@@ -10,7 +10,7 @@ $(BUILD_DIR)/$(PROJECT).ino.elf: $(PROJECT).ino
 	arduino-cli compile -b $(FQBN) --output-dir $(BUILD_DIR)
 
 upload: $(BUILD_DIR)/$(PROJECT).ino.elf
-	arduino-cli upload -i $(BUILD_DIR)/$(PROJECT).ino.elf -b $(FQBN) -p /dev/ttyACM1
+	arduino-cli upload -i $(BUILD_DIR)/$(PROJECT).ino.elf -b $(FQBN) -p $(PORT)
 
 
 clean:
