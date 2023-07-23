@@ -1,5 +1,5 @@
 FQBN:=arduino:avr:uno
-PORT:=/dev/ttyACM1
+PORT:=/dev/ttyACM0
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 PROJECT:=$(shell basename $(CURDIR))
