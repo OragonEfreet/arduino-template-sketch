@@ -1,5 +1,6 @@
 FQBN:=arduino:avr:uno
 PORT:=/dev/ttyACM0
+BAUD:=9600
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 PROJECT:=$(shell basename $(CURDIR))
@@ -11,6 +12,10 @@ $(BUILD_DIR)/$(PROJECT).ino.elf: $(PROJECT).ino
 
 upload: $(BUILD_DIR)/$(PROJECT).ino.elf
 	arduino-cli upload -i $(BUILD_DIR)/$(PROJECT).ino.elf -b $(FQBN) -p $(PORT)
+
+
+run: upload
+	minicom -D $(PORT) -b $(BAUD)
 
 
 clean:
